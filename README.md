@@ -10,4 +10,5 @@ Este repositorio es la resolución al [Test técnico en Angular](https://gitlab.
 Ejecute `npm i` en la terminal para instalar los modulos
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Ejecute `ng serve -o` para un abrir el servidor de desarrollo.
+El servisor estará alojado `http://localhost:4200/`.
