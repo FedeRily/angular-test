@@ -21,7 +21,6 @@ export class AccionesComponent implements OnInit {
     } else {
       this.accionesB = false;
     }
-    console.log(this.accionesB)
   }
 
   rechazar(){

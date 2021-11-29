@@ -46,7 +46,6 @@ export class LicenciasComponent implements OnInit {
           ...r//Desarma el objeto y lo incerta con el resto de las propiedades
         }
       })
-      console.log(this.data)
    })
   }
 

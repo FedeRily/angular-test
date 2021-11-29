@@ -25,7 +25,6 @@ export class DetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.editB = true;
-    console.log(this.LicenciasService.detail)
     this.dataLicencia = this.LicenciasService.detail;
     if(this.dataLicencia.gcbaLicenseStatus == 'ENTERED'){
       this.stateB = true;

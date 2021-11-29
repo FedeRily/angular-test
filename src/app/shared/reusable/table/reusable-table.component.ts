@@ -44,7 +44,6 @@ export class ReusableTableComponent implements OnInit {
 	ngOnChanges() {
 		if (this.dataChange) {
 			this.dataChange.subscribe((res: any) => {
-				console.log(res);
 				this.data = res;
 				this.buildIndexPaginado();
 			});
@@ -53,7 +52,6 @@ export class ReusableTableComponent implements OnInit {
 
 	detail(page: RESTLicencias) {
 		this.pageId = page.id;
-		console.log(this.pageId);
 		this.LicenciasService.detail = page;
 		this.router.navigate(['/licencias/detail/', this.pageId]);
 	}

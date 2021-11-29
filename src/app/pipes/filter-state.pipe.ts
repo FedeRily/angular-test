@@ -8,7 +8,6 @@ import { RESTLicencias } from '../interfaces/rest-licencias';
 export class FilterStatePipe implements PipeTransform {
 
   transform(value: any, selected: string){
-    console.log(selected)
     if(selected){
       const valorfiltrado = value.filter((fila: any) => fila.gcbaLicenseStatus == selected)
       return valorfiltrado;
