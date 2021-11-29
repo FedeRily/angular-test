@@ -1,0 +1,90 @@
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-4">
+            <h3>Informacion Personal</h3>
+            <hr>
+            <ul class="list-group">
+                <ng-container *ngFor="let item of arrayPersonal,let i = index">
+                    <li class="list-group-item"> <strong>{{arrayPersonal[i]}}:</strong> {{arrayDataPersonal[i]}} </li>
+                </ng-container>
+            </ul>
+        </div>
+
+        <ng-container *ngIf="editB">
+            <div class="col-5">
+                <h3>Informacion de la Licencia</h3>
+                <hr>
+                <ul class="list-group">
+                    <li class="list-group-item"> <strong>Id solicitud:</strong> {{dataLicencia.id}} </li>
+                    <ng-container *ngFor="let item of arrayDataLicencia,let i = index">
+                        <li class="list-group-item"> <strong>{{arrayLicencia[i]}}:</strong> {{arrayDataLicencia[i]}} </li>
+                    </ng-container>                  
+                </ul>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-5">
+                    <button class="btn btn-primary btn-lg px-4 gap-3" (click)="edit()">Modificar</button>
+                    <button [routerLink]="['/licencias']" class="btn btn-danger btn-lg px-4 gap-3" routerLink="master">Salir</button>
+                </div>
+            </div>
+        </ng-container>
+        
+        <ng-container *ngIf="!editB">
+            <div class="col-5">
+                <h3>Informacion de la Licencia</h3>
+                <hr>
+                <li class="list-group-item"> <strong>Id solicitud:</strong> {{dataLicencia.id}} </li>
+                <form autocomplete="off">
+                    <ng-container *ngFor="let item of arrayDataLicenciaEdit,let i = index">
+                        <div class="input-group">
+                            <div class="input-group-prepend detail-spanEdit">
+                              <span class="input-group-text" id="basic-addon1">{{arrayLicencia[i]}}</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="{{arrayDataLicenciaEdit[i]}}" value="{{arrayDataLicenciaEdit[i]}}" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                    </ng-container>
+                    <div class="input-group">
+                        <div class="input-group-prepend detail-spanEdit">
+                          <span class="input-group-text" id="basic-addon1">Fecha de inicio</span>
+                        </div>
+                        <input type="date" id="start" name="trip-start" value="{{dataLicencia.initDate}}" min="2020-01-01" max="2023-12-31" class="form-control">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend detail-spanEdit">
+                          <span class="input-group-text" id="basic-addon1">Fecha de fin</span>
+                        </div>
+                        <input type="date" id="start" name="trip-start" value="{{dataLicencia.endingDate}}" min="2020-01-01" max="2099-12-31" class="form-control">
+                    </div>
+                    <select class="custom-select-lg mb-3 input-group" >
+                        <option selected>{{dataLicencia.gcbaLicenseStatus}}</option>
+                        <option value="authorize">AUTHORIZE</option>
+                        <option value="rejected">REJECTED</option>
+                    </select>
+                </form>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-5">
+                    <button (click)="change(dataLicencia.id)" class="btn btn-primary btn-lg px-4 gap-3">Guardar cambios</button>
+                    <button (click)="edit()" class="btn btn-danger btn-lg px-4 gap-3">Cancelar</button>
+                </div>
+            </div>
+        </ng-container>
+        
+        <div class="card col-3">
+            <ng-container *ngIf="stateB">
+                <h3 class="d-grid gap-2 d-sm-flex justify-content-sm-center my-5">Cambiar estado:</h3>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button class="btn btn-primary btn-lg px-4 gap-3 btn-success" (click)="aprobar(dataLicencia.id)">Aprobar</button>
+                <button class="btn btn-primary btn-lg px-4 gap-3 btn-danger" (click)="rechazar(dataLicencia.id)">Rechazar</button>
+            </div>
+            </ng-container>
+                     
+            <h3 class="d-grid gap-2 d-sm-flex justify-content-sm-center my-5">Acciones disponibles:</h3>
+            <ng-container *ngIf="stateB">
+                <li (click)="reAsignar(dataLicencia.id)" class="btn btn-dark btn-lg px-4 gap-3 btn-success detail-accionesButton">Re asingarla</li>
+                <li (click)="auditar(dataLicencia.id)" class="btn btn-dark btn-lg px-4 gap-3 btn-success detail-accionesButton">Auditar</li>
+            </ng-container>
+            <li (click)="anular(dataLicencia.id)" class="btn btn-danger btn-lg px-4 gap-3 btn-success">Anular solicitud</li>
+        </div>
+
+    </div>
+
+</div>

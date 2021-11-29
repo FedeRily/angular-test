@@ -1,0 +1,12 @@
+<div class="container">
+    <h3>Informacion Personal</h3>
+    <hr>
+    <ul class="list-group">
+        <ng-container *ngFor="let item of arrayDataPersonal,let i = index">
+            <li class="list-group-item"> <strong>{{arrayPersonal[i]}}:</strong> {{arrayDataPersonal[i]}} </li>
+        </ng-container>
+    </ul>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-5">
+        <button  [routerLink]="['/licencias']" class="btn btn-danger btn-lg px-4 gap-3" routerLink="master">Salir</button>
+    </div>
+</div>

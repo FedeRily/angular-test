@@ -1,0 +1,28 @@
+<div class="card p-3" style="margin-top: 150px; margin-left: auto; margin-right: auto; width: 700px;">
+
+    <h3 class="d-grid gap-2 d-sm-flex justify-content-sm-center">Acciones disponibles:</h3>
+
+    <ng-container *ngIf="accionesB">
+        <div  class="d-grid gap-2 d-sm-flex justify-content-sm-center my-5">
+            <button class="btn btn-primary btn-lg px-4 gap-3 btn-success" (click)="aprobar()">Aprobar</button>
+            <button class="btn btn-primary btn-lg px-4 gap-3 btn-danger" (click)="rechazar()">Rechazar</button>
+        </div>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button class="btn btn-dark btn-lg px-4 gap-3 btn-danger" (click)="reAsignar()">Re asingar</button>
+            <button class="btn btn-dark btn-lg px-4 gap-3 btn-danger" (click)="auditar()">Auditar</button>
+        </div>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-5">
+            <button class="btn btn-primary btn-lg px-4 gap-3 btn-success" [routerLink]="['/licencias']" >Volver</button>
+            <button class="btn btn-danger btn-lg px-4 gap-3 btn-danger" (click)="anular()">Anular solicitud</button>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="!accionesB">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-5">
+            <button class="btn btn-primary btn-lg px-4 gap-3 btn-success" [routerLink]="['/licencias']" >Volver</button>
+            <button class="btn btn-danger btn-lg px-4 gap-3 btn-danger" (click)="anular()">Anular solicitud</button>
+        </div>
+    </ng-container>
+
+
+</div>
