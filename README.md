@@ -11,4 +11,5 @@ Ejecute `npm i` en la terminal para instalar los modulos
 ## Development server
 
 Ejecute `ng serve -o` en la terminal para abrir el servidor de desarrollo.
-El servisor estará alojado `http://localhost:4200/`.
+
+El mismo estará alojado en `http://localhost:4200/`.
